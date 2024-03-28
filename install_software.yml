@@ -1,0 +1,46 @@
+---
+- name: Install Git, Curl, and jq on Windows 10
+  hosts: windows
+  gather_facts: no
+  tasks:
+    - name: Install Git using Chocolatey
+      win_chocolatey:
+        name: git
+        state: present
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+
+    - name: Install Curl using Chocolatey
+      win_chocolatey:
+        name: curl
+        state: present
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+          
+    - name: Install jq using Chocolatey
+      win_chocolatey:
+        name: jq
+        state: present
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+          
+    - name: Install Node.js using Chocolatey
+      win_chocolatey:
+        name: nodejs
+        state: present
+        version: 18.17.0
+      vars:
+        ansible_winrm_server_cert_validation: ignore          
+
+    - name: Install PM2 using npm
+      win_shell: npm install -g pm2        
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+
+    - name: Install JDK 17 using Chocolatey
+      win_chocolatey:
+        name: openjdk17
+        state: present
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+
