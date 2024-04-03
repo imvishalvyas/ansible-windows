@@ -1,6 +1,20 @@
 # ansible-windows
 This repository contains ansible configurations for installing software on Windows systems.
 
+## prerequisite
+This command sets the network category of a connection profile to "Private" in Windows.
+```
+Set-NetConnectionProfile -NetworkCategory Private
+```
+This command retrieves the network connection profiles on the local computer. It provides information about each network connection, including the network name, interface alias, interface index, and network category (Public, Private, or Domain).
+```
+Get-NetConnectionProfile
+```
+This command is used to configure Windows Remote Management (WinRM) quickly. WinRM is a Microsoft implementation of the WS-Management Protocol, which allows remote management of computers running Windows. Running winrm quickconfig enables basic WinRM settings on the local computer, such as starting the WinRM service, setting up the WinRM listener, and allowing WinRM through the Windows Firewall. This command is often used when setting up systems for remote administration or automation tasks.
+```
+winrm quickconfig
+```
+
 Software will be installed on a remote system.
 ```
 git
