@@ -44,3 +44,11 @@
       vars:
         ansible_winrm_server_cert_validation: ignore
 
+    - name: Set JAVA_HOME environment variable
+      win_environment:
+        name: JAVA_HOME
+        state: present
+        value: "C:\\Program Files\\AdoptOpenJDK\\jdk-17"  # Adjust the path accordingly
+        level: machine          
+      vars:
+        ansible_winrm_server_cert_validation: ignore
