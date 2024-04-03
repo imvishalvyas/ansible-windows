@@ -52,3 +52,38 @@
         level: machine          
       vars:
         ansible_winrm_server_cert_validation: ignore
+
+    - name: Download nginx
+      win_get_url:
+        url: "http://nginx.org/download/nginx-1.24.0.zip"
+        dest: C:\nginx-1.24.0.zip
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+
+    - name: Unzip nginx file
+      win_unzip:
+        src: C:\nginx-1.24.0.zip
+        dest: C:\nginx-1.24.0
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+
+    - name: Download nssm
+      win_get_url:
+        url: "https://nssm.cc/release/nssm-2.24.zip"
+        dest: C:\nssm-2.24.zip
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+
+    - name: Unzip nssm
+      win_unzip:
+        src: C:\nssm-2.24.zip
+        dest: C:\nssm-2.24
+      vars:
+        ansible_winrm_server_cert_validation: ignore
+
+    - name: Download Jenkins MSI installer
+      win_get_url:
+        url: https://get.jenkins.io/windows-stable/2.440.2/jenkins.msi
+        dest: C:\jenkins.msi
+      vars:
+        ansible_winrm_server_cert_validation: ignore        
